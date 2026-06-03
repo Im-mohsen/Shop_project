@@ -31,10 +31,9 @@ class Product(models.Model):
 
         indexes = [
             models.Index(fields=['-created_at']),
-
             models.Index(fields=['is_active']),
-
             models.Index(fields=['is_active', 'is_featured']),
+            models.Index(fields=['title']),
         ]
 
     def __str__(self):
