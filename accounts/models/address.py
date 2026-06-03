@@ -5,7 +5,6 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Address(models.Model):
-    # اعتبارسنجهای اختصاصی برای ایران
     phone_validator = RegexValidator(
         regex=r'^09\d{9}$',
         message=_("شماره تلفن گیرنده باید با ۰۹ شروع شده و ۱۱ رقم باشد.")
