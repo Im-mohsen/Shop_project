@@ -14,7 +14,7 @@ class Order(models.Model):
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name='orders', verbose_name=_("کاربر"))
     address = models.ForeignKey('accounts.Address', on_delete=models.SET_NULL, blank=True, null=True, related_name='orders', verbose_name=_("نشانی ارسال"))
-    # coupon = models.ForeignKey('discounts.Coupon', on_delete=models.SET_NULL, blank=True, null=True, related_name='orders', verbose_name=_("کد تخفیف استفاده شده"))
+    coupon = models.ForeignKey('discounts.Coupon', on_delete=models.SET_NULL, blank=True, null=True, related_name='orders', verbose_name=_("کد تخفیف استفاده شده"))
 
     status = models.CharField(max_length=20, choices=OrderStatus.choices, default=OrderStatus.PENDING, verbose_name=_("وضعیت سفارش"))
     tracking_code = models.CharField(max_length=100, blank=True, null=True, unique=True, verbose_name=_("کد رهگیری پستی"))
