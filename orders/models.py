@@ -37,6 +37,7 @@ class Order(models.Model):
             models.Index(fields=['status']),
             models.Index(fields=['-created_at']),
             models.Index(fields=['user', 'status']),
+            models.Index(fields=['status', '-created_at']),
         ]
 
     def __str__(self):

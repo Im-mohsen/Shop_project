@@ -35,6 +35,7 @@ class Payment(models.Model):
         indexes = [
             models.Index(fields=['status']),
             models.Index(fields=['authority']),
+            models.Index(fields=['status', '-created_at']),
         ]
 
     def __str__(self):
