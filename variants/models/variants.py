@@ -10,8 +10,8 @@ class ProductVariant(models.Model):
     sku = models.CharField(max_length=100, unique=True, verbose_name=_("شناسه کالا (SKU)"))
     barcode = models.CharField(max_length=100, blank=True, null=True, unique=True, verbose_name=_("بارکد"))
 
-    price = models.DecimalField(max_digits=12, decimal_places=0, verbose_name=_("قیمت اصلی (ریال/تومان)"))
-    discount_price = models.DecimalField(max_digits=12, decimal_places=0, blank=True, null=True, verbose_name=_("قیمت با تخفیف"))
+    price = models.DecimalField(max_digits=15, decimal_places=0, verbose_name=_("قیمت اصلی (ریال/تومان)"))
+    discount_price = models.DecimalField(max_digits=15, decimal_places=0, blank=True, null=True, verbose_name=_("قیمت با تخفیف"))
 
     stock_quantity = models.PositiveIntegerField(default=0, verbose_name=_("موجودی انبار"))
     weight = models.PositiveIntegerField(blank=True, null=True, help_text=_("وزن مخصوص این تنوع به گرم"),
