@@ -7,7 +7,7 @@ class AddressInline(admin.StackedInline):
     extra = 0
     fieldsets = [
         (None, {'fields': ('title', 'receiver_name', 'receiver_phone')}),
-        ('نشانی', {'fields': ('province', 'city', 'postal_code', 'address_detail')}),
+        ('نشانی', {'fields': ('province', 'city', 'postal_code', 'full_address')}),
     ]
 
 

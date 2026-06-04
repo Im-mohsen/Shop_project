@@ -16,13 +16,11 @@ class Address(models.Model):
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='addresses', verbose_name=_("کاربر"))
 
+    title = models.CharField(max_length=50, verbose_name=_("نام آدرس"))
+
     province = models.CharField(max_length=100, verbose_name=_("استان"))
     city = models.CharField(max_length=100, verbose_name=_("شهر"))
-    postal_code = models.CharField(
-        max_length=10,
-        validators=[postal_code_validator],
-        verbose_name=_("کد پستی")
-    )
+    postal_code = models.CharField(max_length=10, validators=[postal_code_validator], verbose_name=_("کد پستی"))
     full_address = models.TextField(verbose_name=_("نشانی پستی دقیق"))
     plaque = models.CharField(max_length=10, verbose_name=_("پلاک"))
     unit = models.CharField(max_length=10, blank=True, null=True, verbose_name=_("واحد"))
@@ -30,7 +28,6 @@ class Address(models.Model):
     receiver_name = models.CharField(max_length=255, verbose_name=_("نام و نام خانوادگی گیرنده"))
     receiver_phone = models.CharField(max_length=11, validators=[phone_validator], verbose_name=_("شماره تماس گیرنده"))
 
-    # وضعیت‌ها و زمان‌سنجی
     is_default = models.BooleanField(default=False, verbose_name=_("آدرس پیش‌فرض"))
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("تاریخ ثبت"))
     updated_at = models.DateTimeField(auto_now=True, verbose_name=_("آخرین ویرایش"))
